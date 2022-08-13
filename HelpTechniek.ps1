@@ -1,3 +1,6 @@
-$ADComputerName = "ADComputerName"
+$ADComputerNames = "ADComputerName1", "ADComputerName2","ADComputerName3"
 
-Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
+foreach($ADComputerName in $ADComputerNames)
+{
+    Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
+}
