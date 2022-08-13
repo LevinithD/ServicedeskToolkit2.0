@@ -1,6 +1,15 @@
-$ADComputerNames = "ADComputerName1", "ADComputerName2","ADComputerName3"
-
-foreach($ADComputerName in $ADComputerNames)
+Function HelpTechniek
 {
-    Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
+    [cmdletBinding()]
+    param($ADComputerNames)
+
+    $ADComputerNames = $ADComputerNames.Split(",")
+
+    foreach($ADComputerName in $ADComputerNames)
+    {
+        $ADComputerName = $ADComputerName.Trim()
+        Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
+    }
 }
+
+$ADComputerNames = Read-Host "Geef de computernamen op, gescheiden door een komma"
