@@ -7,7 +7,7 @@ Function Get-Ping
 
 }
 
-Function HelpTechniek
+Function Help-Techniek
 {
     [cmdletBinding()]
     param($ADComputerNames)
