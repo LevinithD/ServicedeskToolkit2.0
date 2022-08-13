@@ -9,7 +9,7 @@ Function HelpTechniek
     {
         $ADComputerName = $ADComputerName.Trim()
         Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
-        Test-Connection $ADComputerName
+        Test-NetConnection $ADComputerName
     }
 }
 
