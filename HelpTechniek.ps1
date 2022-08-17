@@ -31,3 +31,4 @@ Function Help-Techniek
 }
 
 $ADComputerNames = Read-Host "Geef de computernamen op, gescheiden door een komma"
+Help-Techniek -ADComputerNames $ADComputerNames
