@@ -1,3 +1,10 @@
+Function Get-MacAddress
+{
+    [CmdletBinding()]
+    Param($ADComputerName)
+
+    Get-CimInstance win32_networkadapterconfiguration -ComputerName $H$ADComputerName | Select-Object description, macaddress 
+}
 Function Get-Ping
 {
     [CmdletBinding()]
@@ -19,6 +26,7 @@ Function Help-Techniek
         $ADComputerName = $ADComputerName.Trim()
         Get-ADComputer -Name $ADComputerName -Properties LastLogonDate, OperatingSystem
         Get-Ping -ADComputerName $ADComputerName
+        Get-MacAddress -ADComputerName $ADComputerName
     }
 }
 
